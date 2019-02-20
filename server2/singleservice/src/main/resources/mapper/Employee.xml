@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.singleservice.dao.EmployeeMapper">
+ <resultMap id="BaseResultMap" type="com.singleservice.bean.Employee">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sno" jdbcType="VARCHAR" property="sno"/>
+    <result column="name" jdbcType="VARCHAR" property="name"/>
+    <result column="departmeny" jdbcType="VARCHAR" property="departmeny"/>
+    <result column="sex" jdbcType="VARCHAR" property="sex"/>
+    <result column="phone" jdbcType="VARCHAR" property="phone"/>
+  </resultMap>
+  <select id="countTotalNum" resultType="long">
+    select count(*) from employee
+  </select>
+  <select id="searchPage" resultMap="BaseResultMap">
+     select * from employee order by id
+  </select>
+</mapper>
